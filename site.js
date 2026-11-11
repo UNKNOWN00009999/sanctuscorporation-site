@@ -96,12 +96,12 @@
       if (wn) { var wr = wn.getBoundingClientRect(); top0 = wr.top - r.top; bot0 = wr.bottom - r.top; }
       var g = dz.getContext("2d"), im = g.createImageData(w, h), d = im.data, asp = w / h;
       for (var y = 0; y < h; y++) {
-        var py = y * cell, v = y / h, zin = ramp(py, top0 - 46, top0 + 60), zout = 1 - 0.96 * ramp(py, bot0 + 6, bot0 + 110);
+        var py = y * cell, v = y / h, zin = ramp(py, top0 - 46, top0 + 60), zout = 1 - ramp(py, bot0 + 6, bot0 + 96);
         for (var x = 0; x < w; x++) {
           var u = x / w * asp, side = wide ? 0.8 * ramp(x / w, 0.6, 0.86) : 0;
-          var f = 0.26 + 0.5 * blob(u, v, 0.86 * asp, 0.42, 0.5) + 0.42 * blob(u, v, 0.1 * asp, 0.62, 0.42) + 0.3 * blob(u, v, 0.48 * asp, 0.9, 0.5);
+          var f = 0.2 + 0.46 * blob(u, v, 0.86 * asp, 0.42, 0.5) + 0.42 * blob(u, v, 0.1 * asp, 0.62, 0.42) + 0.3 * blob(u, v, 0.48 * asp, 0.9, 0.5);
           if (Math.min(0.9, f) * Math.max(zin, side) * zout * 64 > BAYER[(y & 7) * 8 + (x & 7)] + 0.5) {
-            var o = (y * w + x) * 4; d[o] = 224; d[o + 1] = 169; d[o + 2] = 99; d[o + 3] = 150;
+            var o = (y * w + x) * 4; d[o] = 236; d[o + 1] = 194; d[o + 2] = 112; d[o + 3] = 205;
           }
         }
       }
@@ -123,8 +123,8 @@
   /* 캔버스에 data-cy(세로 자리)·data-scale(크기)·data-tone="amber"(한 가지 색)·data-font 를 주면 따른다 */
   var DS = cv.dataset || {}, CY = parseFloat(DS.cy) || 0.5, SC = parseFloat(DS.scale) || 1, AMB = DS.tone === "amber";
   var MONO = DS.font || '11px ui-monospace,"SF Mono","Cascadia Mono",Consolas,"Roboto Mono",Menlo,monospace';
-  var C_RING = AMB ? "224,170,96" : "190,205,235", C_COOL = AMB ? "206,146,70" : "150,176,226", C_WARM = AMB ? "255,214,150" : "236,222,196",
-      C_DUST = AMB ? "214,160,90" : "170,190,230", C_TXT = AMB ? "255,220,165" : "232,236,244";
+  var C_RING = AMB ? "227,181,102" : "190,205,235", C_COOL = AMB ? "204,158,76" : "150,176,226", C_WARM = AMB ? "255,214,150" : "236,222,196",
+      C_DUST = AMB ? "218,172,96" : "170,190,230", C_TXT = AMB ? "255,220,165" : "232,236,244";
 
   function size() {
     var r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
@@ -175,7 +175,7 @@
       var s = proj([v[0] / len * 1.04, v[1] / len * 1.04, v[2] / len * 1.04]);
       var dep = front ? 1 : 0.42, f = flash[i];
       var g = ctx.createLinearGradient(s[0], s[1], q[0], q[1]);
-      g.addColorStop(0, "rgba(224,169,99,0)"); g.addColorStop(1, "rgba(224,169,99," + (0.3 * dep + f * 0.5) + ")");
+      g.addColorStop(0, "rgba(227,181,102,0)"); g.addColorStop(1, "rgba(227,181,102," + (0.3 * dep + f * 0.5) + ")");
       ctx.strokeStyle = g; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(s[0], s[1]); ctx.lineTo(q[0], q[1]); ctx.stroke();
       var z = 3.2 + f * 2.5;
       ctx.save(); ctx.translate(q[0], q[1]); ctx.rotate(0.7854);
@@ -195,7 +195,7 @@
     var t = now; px += (tx - px) * 0.04; py += (ty - py) * 0.04;
     ctx.clearRect(0, 0, W, H);
     var gl = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 2.5);
-    gl.addColorStop(0, "rgba(224,169,99,.2)"); gl.addColorStop(0.22, "rgba(224,169,99,.09)"); gl.addColorStop(0.5, AMB ? "rgba(190,120,40,.06)" : "rgba(90,120,190,.07)"); gl.addColorStop(1, "rgba(0,0,0,0)");
+    gl.addColorStop(0, "rgba(227,181,102,.2)"); gl.addColorStop(0.22, "rgba(227,181,102,.09)"); gl.addColorStop(0.5, AMB ? "rgba(190,120,40,.06)" : "rgba(90,120,190,.07)"); gl.addColorStop(1, "rgba(0,0,0,0)");
     ctx.fillStyle = gl; ctx.fillRect(0, 0, W, H);
     for (var k = 0; k < dust.length; k++) {
       var d = dust[k]; d[0] += Math.cos(d[3]) * 0.012 * dt; d[1] += Math.sin(d[3]) * 0.008 * dt - 0.004 * dt;

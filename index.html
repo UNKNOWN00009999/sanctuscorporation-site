@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-slot="page-title">상투스코퍼레이션 주식회사 | 결제 서비스 도입 상담·PG 접수 · Sanctus Corporation Inc.</title>
+<meta name="description" data-slot="page-description" content="상투스코퍼레이션 주식회사(Sanctus Corporation Inc.)는 매장·온라인 결제(PG·VAN)와 기업전용카드·정기결제 도입을 상담하고 결제 대행사 접수를 돕는 서울 서초구의 회사입니다.">
+<link rel="canonical" href="https://sanctuscorporation.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#142A4C">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="상투스코퍼레이션 주식회사">
+<meta property="og:title" content="상투스코퍼레이션 주식회사 · Sanctus Corporation Inc.">
+<meta property="og:description" content="매장·온라인 결제(PG·VAN)와 기업전용카드·정기결제 도입을 상담하고 결제 대행사 접수를 돕습니다.">
+<meta property="og:url" content="https://sanctuscorporation.com/">
+<meta property="og:image" content="https://sanctuscorporation.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="상투스코퍼레이션 로고와 회사 이름">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Sanctus Corporation Inc.",
+  "legalName": "Sanctus Corporation Inc.",
+  "alternateName": "상투스코퍼레이션 주식회사",
+  "url": "https://sanctuscorporation.com/",
+  "logo": "https://sanctuscorporation.com/assets/sanctus-corporation-logo.png",
+  "email": "chanwoo@sanctuscorp.com",
+  "taxID": "729-81-03859",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Room 402-L367, 4F, 13, Saimdang-ro 8-gil, Seocho-gu",
+    "addressLocality": "Seoul",
+    "postalCode": "06640",
+    "addressCountry": "KR"
+  }
+}
+</script>
+<style>
+/* sanctus-base v1 */
+/* sanctus-base.css — 상투스 판 웹 기본 토큰 v1 (2026-10-11)
+   원본: 강의랜딩 index.html :root, sanctus-doc-style 팔레트. 견본에는 이 파일을 <style> 안에 그대로 붙여 넣는다(외부 참조 금지).
+   바꿀 때는 버전을 올리고 «00. 웹페이지 템플릿 목록»의 «공용 CSS 버전» 표와 영향받는 견본을 다시 점검한다. */
+:root{
+  /* 색 — 네이비 한 계열. 밝은 파랑·하늘색 음영·형광·신호색 금지. 강조는 크기·굵기로 */
+  --navy-deep:#142A4C; --navy:#1B3A5F; --ink:#1F2937; --muted:#5B6472;
+  --line:#DDE1E7; --line-strong:#C3CAD4; --bg:#FFFFFF; --bg-soft:#F4F6F8;
+  --warn-bg:#FFF8E6; --warn-line:#E0C67A; --warn-ink:#6B4E00;
+  /* 글자 — 4단 + 본문. 한글은 keep-all, 자간은 제목만 살짝 */
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --fs-1:clamp(28px,4.2vw,40px); --fs-2:clamp(22px,2.8vw,28px); --fs-3:19px; --fs-body:17px; --fs-small:14px;
+  --lh-body:1.75; --lh-head:1.35;
+  /* 여백 — 8의 배수 */
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:80px;
+  /* 모서리 1종, 그림자 0 */
+  --radius:6px;
+  /* 모션 — 200ms 이하, 한 번만 */
+  --ease:cubic-bezier(.2,.7,.2,1); --dur:180ms;
+  --maxw:1080px; --maxw-text:760px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--fs-body);
+  line-height:var(--lh-body);word-break:keep-all;overflow-wrap:break-word}
+h1,h2,h3{color:var(--navy-deep);line-height:var(--lh-head);letter-spacing:-0.02em;margin:0 0 var(--s2)}
+h1{font-size:var(--fs-1);font-weight:800} h2{font-size:var(--fs-2);font-weight:700} h3{font-size:var(--fs-3);font-weight:700}
+p{margin:0 0 var(--s2)} a{color:var(--navy);text-underline-offset:3px}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s3)}
+.wrap.text{max-width:var(--maxw-text)}
+:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.sample-banner{background:var(--warn-bg);border-bottom:1px solid var(--warn-line);color:var(--warn-ink);
+  font-size:var(--fs-small);text-align:center;padding:var(--s1) var(--s2)}
+.slot{border:1px dashed var(--line-strong);background:var(--bg-soft);color:var(--muted);
+  display:flex;align-items:center;justify-content:center;text-align:center;font-size:var(--fs-small);border-radius:var(--radius)}
+.tbd{background:var(--warn-bg);color:var(--warn-ink);padding:0 4px;border-radius:3px;font-size:.9em}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* sanctuscorporation.com 회사 홈페이지 — W01 기업·브랜드 홈페이지, 변형 «다. 진한 바탕형» (2026-11-10)
+   글꼴은 외부에서 불러오지 않습니다. --font 의 Pretendard 는 기기에 설치돼 있을 때만 쓰이고, 없으면 시스템 고딕으로 내려갑니다. */
+:root{--on-navy:#D5DCE6; --on-navy-muted:#AEB9C8; --on-navy-strong:#FFFFFF; --line-on-navy:#3A5276}
+html{scroll-behavior:smooth}
+.label{display:flex;flex-wrap:wrap;min-width:0;overflow-wrap:anywhere;gap:var(--s1);align-items:baseline;font-size:var(--fs-small);font-weight:600;color:var(--navy);margin:0 0 var(--s2)}
+.label .no{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+section{padding:var(--s6) 0;border-top:1px solid var(--line)}
+section.soft{background:var(--bg-soft)}
+.skip{position:absolute;left:var(--s2);top:calc(var(--s6) * -1);z-index:10;background:var(--bg);color:var(--navy-deep);padding:var(--s1) var(--s2);border-radius:var(--radius);font-weight:700;text-decoration:none}
+.skip:focus{top:var(--s2)}
+
+/* 상단 — 진한 네이비. 로고(금색·흰 글자)는 어두운 바탕용입니다 */
+.site-head{background:var(--navy-deep);border-bottom:1px solid var(--line-on-navy)}
+.site-head .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--s1) var(--s4);padding-top:var(--s2);padding-bottom:var(--s2)}
+.brand{display:inline-flex;align-items:center;min-height:44px;border-radius:var(--radius)}
+.brand img{width:144px}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 var(--s3)}
+.nav a{display:inline-flex;align-items:center;min-height:44px;color:var(--on-navy);text-decoration:none;font-size:var(--fs-small);font-weight:600}
+.nav a:hover{color:var(--on-navy-strong);text-decoration:underline}
+.site-head :focus-visible,.hero :focus-visible,.site-foot :focus-visible{outline-color:var(--on-navy-strong)}
+
+/* 히어로 — 진한 바탕, 왼쪽 정렬 한 문장 + 버튼 하나, 오른쪽 회사 개요 표 */
+.hero{background:var(--navy-deep);color:var(--on-navy);border-top:0;padding:var(--s6) 0}
+.hero .label{color:var(--on-navy-muted)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s6);align-items:end}
+.hero h1{color:var(--on-navy-strong);max-width:16em;margin-bottom:var(--s3);text-wrap:pretty}
+.hero .lead{color:var(--on-navy);max-width:34em;margin-bottom:var(--s4)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--s3);background:var(--navy-deep);color:var(--on-navy-strong);
+  text-decoration:none;font-weight:700;border-radius:var(--radius);border:1px solid var(--navy-deep);text-align:center;transition:background var(--dur) var(--ease)}
+.btn:hover{background:var(--navy)}
+.btn.on-dark{background:var(--on-navy-strong);color:var(--navy-deep);border-color:var(--on-navy-strong)}
+.btn.on-dark:hover{background:var(--on-navy)}
+.facts{border:1px solid var(--line-on-navy);border-radius:var(--radius);padding:var(--s3)}
+.facts h2{font-size:var(--fs-small);font-weight:700;color:var(--on-navy-muted);letter-spacing:0;margin:0 0 var(--s1)}
+dl.rows{margin:0}
+dl.rows div{display:grid;grid-template-columns:7em minmax(0,1fr);gap:var(--s2);padding:var(--s1) 0;border-top:1px solid var(--line)}
+dl.rows div:first-child{border-top:0}
+dl.rows dt{color:var(--muted);font-size:var(--fs-small)}
+dl.rows dd{margin:0;font-weight:600;color:var(--ink);min-width:0;overflow-wrap:anywhere}
+.facts dl.rows div{grid-template-columns:4.5em minmax(0,1fr);border-top-color:var(--line-on-navy)}
+.facts dl.rows dt{color:var(--on-navy-muted)}
+.facts dl.rows dd{color:var(--on-navy-strong)}
+
+/* 01 하는 일 — 번호 목록(카드 아님) */
+.split{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:var(--s5)}
+.split .intro p{color:var(--muted)}
+ol.services{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line)}
+ol.services li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:var(--s3);padding:var(--s4) 0;border-top:1px solid var(--line)}
+ol.services li:first-child{border-top:2px solid var(--navy-deep)}
+.num-big{font-size:var(--fs-2);font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.2;letter-spacing:.02em}
+ol.services h3{margin-bottom:var(--s1)}
+ol.services p{margin-bottom:var(--s1)}
+.meta{font-size:var(--fs-small);color:var(--muted);margin:0}
+.soon{display:grid;grid-template-columns:64px minmax(0,1fr);gap:var(--s3);margin:var(--s3) 0 0;font-size:var(--fs-small);color:var(--muted)}
+.soon b{color:var(--navy);font-weight:700}
+
+/* 02 상담 순서 */
+ol.steps{list-style:none;margin:var(--s5) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--s3)}
+ol.steps li{border-top:2px solid var(--line-strong);padding-top:var(--s2)}
+ol.steps li:first-child{border-top-color:var(--navy-deep)}
+ol.steps .step{display:block;font-size:var(--fs-small);font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;margin-bottom:var(--s1);letter-spacing:.04em}
+ol.steps h3{margin-bottom:var(--s1)}
+ol.steps p{color:var(--ink);font-size:var(--fs-small);line-height:1.7;margin:0}
+.note{margin:var(--s4) 0 0;font-size:var(--fs-small);color:var(--muted);max-width:var(--maxw-text)}
+
+/* 03 English — 회사 개요·사업 영역·연락처 요약 */
+.en-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--s5);align-items:start}
+.en-grid h3{font-size:var(--fs-body)}
+.en-list{margin:0 0 var(--s3);padding-left:1.2em}
+.en-list li{margin-bottom:var(--s1)}
+.en-grid dl.rows div{grid-template-columns:12em minmax(0,1fr)}
+
+/* 04 회사 정보·연락처 */
+.contact-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--s5);align-items:start}
+.contact-grid dl.rows div{padding:var(--s2) 0}
+.ask{border-top:2px solid var(--navy-deep);padding-top:var(--s3)}
+.ask .small{font-size:var(--fs-small);color:var(--muted);margin:var(--s3) 0 0}
+
+/* 바닥글 — 사업자 정보 */
+.site-foot{background:var(--navy-deep);color:var(--on-navy);padding:var(--s5) 0 var(--s4);font-size:var(--fs-small);line-height:1.8}
+.site-foot a{color:var(--on-navy-strong)}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--s2) var(--s4);padding-bottom:var(--s3);border-bottom:1px solid var(--line-on-navy);margin-bottom:var(--s3)}
+.foot-top img{width:128px}
+.foot-links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 var(--s3)}
+.foot-links a{display:inline-flex;align-items:center;min-height:44px;font-weight:700}
+.biz{margin:0;display:flex;flex-wrap:wrap;gap:0 var(--s3)}
+.biz div{display:flex;gap:var(--s1);min-width:0;max-width:100%}
+.biz dt{color:var(--on-navy-muted);flex:none}
+.biz dd{margin:0;color:var(--on-navy-strong);min-width:0;overflow-wrap:anywhere}
+.copy{margin:var(--s3) 0 0;color:var(--on-navy-muted)}
+.nw{white-space:nowrap}
+dd .line{display:block}
+
+@media (max-width:900px){
+  .hero-grid,.split,.contact-grid,.en-grid{grid-template-columns:minmax(0,1fr);gap:var(--s4)}
+  ol.steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:var(--s4)}
+}
+@media (max-width:560px){
+  section{padding:var(--s5) 0}
+  .hero{padding:var(--s5) 0}
+  .wrap{padding:0 var(--s2)}
+  .site-head .wrap{flex-direction:column;align-items:flex-start;gap:0}
+  .brand img{width:128px}
+  ol.services li,.soon{grid-template-columns:minmax(0,1fr);gap:var(--s1)}
+  ol.steps{grid-template-columns:minmax(0,1fr);gap:var(--s3)}
+  dl.rows div,.en-grid dl.rows div,.facts dl.rows div{grid-template-columns:minmax(0,1fr);gap:0}
+  .btn{width:100%}
+}
+
+/* sanctuscorporation.com 추가 — 접수 버튼·제휴 결제사·온라인 접수 (2026-11-11) */
+.btn-row{display:flex;flex-wrap:wrap;gap:var(--s2)}
+.btn.ghost{background:transparent;color:var(--on-navy-strong);border-color:var(--line-on-navy)}
+.btn.ghost:hover{background:var(--navy)}
+ul.partners{list-style:none;margin:var(--s4) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--navy-deep);border-left:1px solid var(--line)}
+ul.partners li{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:var(--s3) var(--s2);text-align:center;font-weight:700;color:var(--navy-deep);font-size:var(--fs-3);letter-spacing:.02em;background:var(--bg)}
+ul.partners li.etc{color:var(--muted);font-weight:600;font-size:var(--fs-body)}
+ol.steps.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.apply-cta{margin:var(--s4) 0 0}
+@media (max-width:900px){ul.partners{grid-template-columns:repeat(2,minmax(0,1fr))} ol.steps.three{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">본문으로 건너뛰기</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="brand" href="#top">
+      <picture>
+        <source srcset="assets/sanctus-corporation-logo.webp" type="image/webp">
+        <img src="assets/sanctus-corporation-logo.png" width="144" height="53" alt="상투스코퍼레이션 주식회사 (Sanctus Corporation Inc.)">
+      </picture>
+    </a>
+    <nav class="nav" aria-label="주 메뉴">
+      <ul>
+        <li><a href="#services">하는 일</a></li>
+        <li><a href="#partners">제휴 결제사</a></li>
+        <li><a href="#apply">온라인 접수</a></li>
+        <li><a href="#process">상담 순서</a></li>
+        <li><a href="#english" lang="en">English</a></li>
+        <li><a href="#contact">회사 정보</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="label" data-slot="hero-eyebrow">상투스코퍼레이션 주식회사</p>
+        <h1 id="hero-title" data-slot="hero-title">매장·온라인 결제와 기업전용카드 도입을 상담하고 결제 대행사 접수를 돕습니다</h1>
+        <p class="lead" data-slot="hero-lead">상투스코퍼레이션은 가맹점에 맞는 결제 방식(PG·VAN)을 비교해 안내합니다. 결제 대행사에 낼 접수 자료도 함께 준비합니다. PG 가입은 온라인 접수 화면에서 바로 시작하실 수 있습니다.</p>
+        <div class="btn-row"><a class="btn on-dark" href="https://pg.sanctuscorporation.net/" data-slot="hero-cta">온라인으로 PG 접수하기</a><a class="btn ghost" href="mailto:chanwoo@sanctuscorp.com?subject=%5B%EC%83%81%EB%8B%B4%20%EC%9A%94%EC%B2%AD%5D%20%EA%B2%B0%EC%A0%9C%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%8F%84%EC%9E%85" data-slot="hero-cta-2">메일로 상담 요청하기</a></div>
+      </div>
+      <aside class="facts" aria-labelledby="facts-title">
+        <h2 id="facts-title">회사 개요</h2>
+        <dl class="rows">
+          <div><dt>법인명</dt><dd data-slot="fact-entity">상투스코퍼레이션 주식회사</dd></div>
+          <div><dt>영문명</dt><dd data-slot="fact-entity-en" lang="en">Sanctus Corporation Inc.</dd></div>
+          <div><dt>하는 일</dt><dd data-slot="fact-business">결제 서비스 도입 상담·접수 지원</dd></div>
+          <div><dt>개업</dt><dd data-slot="fact-founded">2025년 7월 17일</dd></div>
+          <div><dt>본점</dt><dd data-slot="fact-location">서울특별시 서초구</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section id="services" aria-labelledby="services-title">
+    <div class="wrap split">
+      <div class="intro">
+        <p class="label"><span class="no">01</span> 하는 일</p>
+        <h2 id="services-title" data-slot="services-title">결제 방식을 정하고 접수하는 일을 돕습니다</h2>
+        <p data-slot="services-intro">카드 결제는 매장과 서비스의 형태에 따라 PG 또는 VAN 방식으로 받습니다. 어느 방식이 맞는지 비교해 안내하고 결제 대행사 접수에 필요한 자료를 함께 준비합니다.</p>
+      </div>
+      <div>
+        <ol class="services">
+          <li>
+            <span class="num-big" aria-hidden="true">01</span>
+            <div>
+              <h3 data-slot="service-1-title">매장 결제(PG·VAN) 도입 상담</h3>
+              <p data-slot="service-1-desc">업장 상황과 업종에 맞춰 PG와 VAN 가운데 어느 방식이 맞는지 비교해 드립니다. 프랜차이즈는 직영점과 가맹점의 결제·정산 구조를 함께 살펴봅니다.</p>
+              <p class="meta" data-slot="service-1-meta">대상: 오프라인 매장, 프랜차이즈 본사</p>
+            </div>
+          </li>
+          <li>
+            <span class="num-big" aria-hidden="true">02</span>
+            <div>
+              <h3 data-slot="service-2-title">온라인 결제(PG) 도입 상담</h3>
+              <p data-slot="service-2-desc">쇼핑몰과 앱·웹 서비스에 붙일 결제창 방식을 안내합니다. 결제 대행사 접수에 필요한 자료 준비도 돕습니다.</p>
+              <p class="meta" data-slot="service-2-meta">대상: 쇼핑몰, 앱·웹 서비스 운영사</p>
+            </div>
+          </li>
+          <li>
+            <span class="num-big" aria-hidden="true">03</span>
+            <div>
+              <h3 data-slot="service-3-title">기업전용카드·정기결제 상담</h3>
+              <p data-slot="service-3-desc">원재료·물류·광고비 같은 거래 대금을 기업전용카드로 결제하는 방식과, 가구·설비·용역처럼 금액이 큰 상품을 정기결제(구독)로 받는 방식을 안내합니다.</p>
+              <p class="meta" data-slot="service-3-meta">대상: 제조사·유통사·프랜차이즈 본사, 고가 상품·서비스 공급사</p>
+            </div>
+          </li>
+        </ol>
+        <p class="soon" data-slot="service-soon"><b>준비 중</b><span>모바일 게임과 디지털 콘텐츠 사업을 준비하고 있습니다.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" class="soft" aria-labelledby="partners-title">
+    <div class="wrap">
+      <p class="label"><span class="no">02</span> 제휴 결제사</p>
+      <h2 id="partners-title" data-slot="partners-title">여러 결제사의 조건을 한 번에 비교해 드립니다</h2>
+      <p class="note" style="margin-top:0" data-slot="partners-intro">상투스코퍼레이션은 아래 결제 대행사(PG)·VAN사와 제휴하고 있습니다. 업종과 매출 규모, 필요한 결제수단에 맞는 곳을 골라 접수를 돕습니다.</p>
+      <ul class="partners" data-slot="partners-list">
+        <li>KCP</li>
+        <li>KPN</li>
+        <li>KIS</li>
+        <li>KOVAN</li>
+        <li>NICE</li>
+        <li>웰컴</li>
+        <li>KSNET</li>
+        <li class="etc">그 밖의 결제사</li>
+      </ul>
+      <p class="note" data-slot="partners-note">표기는 각 회사의 약칭입니다. 가맹 심사 결과와 수수료는 각 결제사가 정합니다.</p>
+    </div>
+  </section>
+
+  <section id="apply" aria-labelledby="apply-title">
+    <div class="wrap">
+      <p class="label"><span class="no">03</span> 온라인 접수</p>
+      <h2 id="apply-title" data-slot="apply-title">PG 가입은 온라인으로 접수하실 수 있습니다</h2>
+      <ol class="steps three">
+        <li>
+          <span class="step">1단계</span>
+          <h3>접수 시작</h3>
+          <p>상호와 사업자등록번호를 적으면 회사 전용 접수 화면이 열립니다.</p>
+        </li>
+        <li>
+          <span class="step">2단계</span>
+          <h3>정보와 서류 올리기</h3>
+          <p>사업자 정보와 결제할 사이트, 매출 정보를 적고 서류를 올립니다. 30일 동안 이어서 작성하실 수 있습니다.</p>
+        </li>
+        <li>
+          <span class="step">3단계</span>
+          <h3>결제사 접수와 안내</h3>
+          <p>담당자가 내용을 확인해 맞는 결제사에 접수하고 진행 상황을 알려 드립니다.</p>
+        </li>
+      </ol>
+      <p class="apply-cta"><a class="btn" href="https://pg.sanctuscorporation.net/" data-slot="apply-cta">온라인 접수 화면 열기</a></p>
+      <p class="note" data-slot="apply-note">접수 화면은 pg.sanctuscorporation.net 에서 열립니다. 적어 주신 정보는 PG 가맹 접수에만 씁니다.</p>
+    </div>
+  </section>
+
+  <section id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <p class="label"><span class="no">04</span> 상담 순서</p>
+      <h2 id="process-title" data-slot="process-title">상담은 이 순서로 진행합니다</h2>
+      <ol class="steps">
+        <li>
+          <span class="step">1단계</span>
+          <h3 data-slot="process-1-title">상담 요청</h3>
+          <p data-slot="process-1-desc">메일로 업종, 매장이나 서비스 주소, 쓰고 싶은 결제 수단을 알려 주십니다.</p>
+        </li>
+        <li>
+          <span class="step">2단계</span>
+          <h3 data-slot="process-2-title">결제 환경 확인</h3>
+          <p data-slot="process-2-desc">지금 쓰는 단말기나 결제창이 있는지, 결제 규모가 어느 정도인지 함께 확인합니다.</p>
+        </li>
+        <li>
+          <span class="step">3단계</span>
+          <h3 data-slot="process-3-title">방식 안내</h3>
+          <p data-slot="process-3-desc">맞는 결제 방식과 진행 절차를 비교해 설명드리고, 고르시는 데 필요한 자료를 드립니다.</p>
+        </li>
+        <li>
+          <span class="step">4단계</span>
+          <h3 data-slot="process-4-title">접수 지원</h3>
+          <p data-slot="process-4-desc">결제 대행사에 낼 자료를 함께 준비하고, 접수한 뒤 진행 상황을 확인해 알려 드립니다.</p>
+        </li>
+      </ol>
+      <p class="note" data-slot="process-note">가맹 심사 결과와 수수료, 카드 발급과 한도는 결제 대행사와 카드사가 정합니다. 상투스코퍼레이션이 이를 약속하지 않습니다.</p>
+    </div>
+  </section>
+
+  <section id="english" class="soft" lang="en" aria-labelledby="english-title">
+    <div class="wrap">
+      <p class="label"><span class="no">05</span> English</p>
+      <h2 id="english-title" data-slot="en-title">Company overview</h2>
+      <div class="en-grid">
+        <div>
+          <p data-slot="en-summary">Sanctus Corporation Inc. is a company based in Seoul, Korea. We advise merchants on adopting card payment services for stores and online services (PG and VAN) and help them prepare applications to payment service providers.</p>
+          <h3>What we do</h3>
+          <ul class="en-list" data-slot="en-services">
+            <li>Advice on in-store card payments (PG and VAN)</li>
+            <li>Advice on online payments (PG) for online stores, apps and websites</li>
+            <li>Advice on corporate card payments and subscription billing</li>
+            <li>Online merchant application: <a href="https://pg.sanctuscorporation.net/">pg.sanctuscorporation.net</a></li>
+            <li>In preparation: mobile games and digital content</li>
+          </ul>
+          <p class="meta" data-slot="en-note">Merchant approval, fees, card issuance and limits are decided by the payment service providers and card companies.</p>
+        </div>
+        <dl class="rows">
+          <div><dt>Legal name</dt><dd data-slot="en-legal-name">Sanctus Corporation Inc.</dd></div>
+          <div><dt>Korean name</dt><dd data-slot="en-korean-name" lang="ko">상투스코퍼레이션 주식회사</dd></div>
+          <div><dt>Representative</dt><dd data-slot="en-ceo">Chanwoo Han</dd></div>
+          <div><dt>Business registration no.</dt><dd data-slot="en-bizno">729-81-03859</dd></div>
+          <div><dt>Registered address</dt><dd data-slot="en-address">Room 402-L367, 4F, 13, Saimdang-ro 8-gil, Seocho-gu, Seoul 06640, Republic of Korea</dd></div>
+          <div><dt>Business commenced</dt><dd data-slot="en-founded">July 17, 2025</dd></div>
+          <div><dt>Registered business</dt><dd data-slot="en-business">Software development and supply; wholesale and retail of electronic devices; other business support services</dd></div>
+          <div><dt>Email</dt><dd data-slot="en-email"><a href="mailto:chanwoo@sanctuscorp.com?subject=Inquiry%20-%20Sanctus%20Corporation%20Inc.">chanwoo@<wbr>sanctuscorp.com</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <p class="label"><span class="no">06</span> 회사 정보</p>
+      <h2 id="contact-title">회사 정보와 연락처</h2>
+      <div class="contact-grid">
+        <dl class="rows">
+          <div><dt>상호</dt><dd data-slot="contact-company">상투스코퍼레이션 주식회사</dd></div>
+          <div><dt>영문 상호</dt><dd data-slot="contact-company-en" lang="en">Sanctus Corporation Inc.</dd></div>
+          <div><dt>대표자</dt><dd data-slot="contact-ceo">한찬우</dd></div>
+          <div><dt>사업자등록번호</dt><dd data-slot="contact-bizno">729-81-03859</dd></div>
+          <div><dt>본점 주소</dt><dd data-slot="contact-address">서울특별시 서초구 사임당로8길 13, 4층 <span class="nw">402-L367호</span> <span class="nw">(서초동, 제일빌딩)</span></dd></div>
+          <div><dt>업태·종목</dt><dd data-slot="contact-business"><span class="line">정보통신업 / 소프트웨어 개발 및 공급업</span><span class="line">도매 및 소매업 / 전자기기 도소매업</span><span class="line">기타 서비스업 / 기타 사업지원 서비스업</span></dd></div>
+          <div><dt>이메일</dt><dd data-slot="contact-email"><a href="mailto:chanwoo@sanctuscorp.com">chanwoo@<wbr>sanctuscorp.com</a></dd></div>
+        </dl>
+        <div class="ask">
+          <p data-slot="contact-cta-text">업종, 매장이나 서비스 주소, 쓰고 싶은 결제 수단을 적어 메일로 보내 주시면 답장드립니다.</p>
+          <a class="btn" href="mailto:chanwoo@sanctuscorp.com?subject=%5B%EC%83%81%EB%8B%B4%20%EC%9A%94%EC%B2%AD%5D%20%EA%B2%B0%EC%A0%9C%20%EC%84%9C%EB%B9%84%EC%8A%A4%20%EB%8F%84%EC%9E%85" data-slot="contact-cta">메일로 상담 요청하기</a>
+          <p class="small" data-slot="contact-privacy">이 웹사이트에는 문의 양식이 없고, 방문자 정보를 모으지 않습니다. PG 가입 접수는 별도 접수 화면에서 받습니다. <a href="privacy.html">개인정보 고지 보기</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-top">
+      <picture>
+        <source srcset="assets/sanctus-corporation-logo.webp" type="image/webp">
+        <img src="assets/sanctus-corporation-logo.png" width="128" height="47" alt="상투스코퍼레이션 주식회사 (Sanctus Corporation Inc.)">
+      </picture>
+      <ul class="foot-links">
+        <li><a href="privacy.html" data-slot="legal-privacy-link">개인정보 고지 · Privacy</a></li>
+      </ul>
+    </div>
+    <dl class="biz">
+      <div><dt>상호</dt><dd data-slot="legal-company">상투스코퍼레이션 주식회사 (<span lang="en">Sanctus Corporation Inc.</span>)</dd></div>
+      <div><dt>대표자</dt><dd data-slot="legal-ceo">한찬우</dd></div>
+      <div><dt>사업자등록번호</dt><dd data-slot="legal-bizno">729-81-03859</dd></div>
+      <div><dt>주소</dt><dd data-slot="legal-address">서울특별시 서초구 사임당로8길 13, 4층 <span class="nw">402-L367호</span> <span class="nw">(서초동, 제일빌딩)</span></dd></div>
+      <div><dt lang="en">Address</dt><dd data-slot="legal-address-en" lang="en">Room 402-L367, 4F, 13, Saimdang-ro 8-gil, Seocho-gu, Seoul 06640, Republic of Korea</dd></div>
+      <div><dt>이메일</dt><dd data-slot="legal-email"><a href="mailto:chanwoo@sanctuscorp.com">chanwoo@<wbr>sanctuscorp.com</a></dd></div>
+    </dl>
+    <p class="copy" data-slot="legal-copyright">© 2026 Sanctus Corporation Inc. All rights reserved.</p>
+  </div>
+</footer>
+</body>
+</html>

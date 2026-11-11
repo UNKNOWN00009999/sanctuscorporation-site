@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>페이지를 찾을 수 없습니다 · Page not found | 상투스코퍼레이션 주식회사</title>
+<!-- 404 페이지는 아무 주소에서나 보이므로 파비콘을 안에 넣고, 첫 화면 링크는 절대 경로(/)로 둡니다 -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23142A4C'/%3E%3Cpath d='M5 22.5Q15.5 3.5 27.5 16Q15.5 28.5 5 9.5' fill='none' stroke='%23E0A963' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='22' cy='14.2' r='1.3' fill='%23E0A963'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#142A4C">
+<style>
+/* sanctus-base v1 */
+/* sanctus-base.css — 상투스 판 웹 기본 토큰 v1 (2026-10-11)
+   원본: 강의랜딩 index.html :root, sanctus-doc-style 팔레트. 견본에는 이 파일을 <style> 안에 그대로 붙여 넣는다(외부 참조 금지).
+   바꿀 때는 버전을 올리고 «00. 웹페이지 템플릿 목록»의 «공용 CSS 버전» 표와 영향받는 견본을 다시 점검한다. */
+:root{
+  /* 색 — 네이비 한 계열. 밝은 파랑·하늘색 음영·형광·신호색 금지. 강조는 크기·굵기로 */
+  --navy-deep:#142A4C; --navy:#1B3A5F; --ink:#1F2937; --muted:#5B6472;
+  --line:#DDE1E7; --line-strong:#C3CAD4; --bg:#FFFFFF; --bg-soft:#F4F6F8;
+  --warn-bg:#FFF8E6; --warn-line:#E0C67A; --warn-ink:#6B4E00;
+  /* 글자 — 4단 + 본문. 한글은 keep-all, 자간은 제목만 살짝 */
+  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI","Malgun Gothic","맑은 고딕","Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --fs-1:clamp(28px,4.2vw,40px); --fs-2:clamp(22px,2.8vw,28px); --fs-3:19px; --fs-body:17px; --fs-small:14px;
+  --lh-body:1.75; --lh-head:1.35;
+  /* 여백 — 8의 배수 */
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:80px;
+  /* 모서리 1종, 그림자 0 */
+  --radius:6px;
+  /* 모션 — 200ms 이하, 한 번만 */
+  --ease:cubic-bezier(.2,.7,.2,1); --dur:180ms;
+  --maxw:1080px; --maxw-text:760px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font);font-size:var(--fs-body);
+  line-height:var(--lh-body);word-break:keep-all;overflow-wrap:break-word}
+h1,h2,h3{color:var(--navy-deep);line-height:var(--lh-head);letter-spacing:-0.02em;margin:0 0 var(--s2)}
+h1{font-size:var(--fs-1);font-weight:800} h2{font-size:var(--fs-2);font-weight:700} h3{font-size:var(--fs-3);font-weight:700}
+p{margin:0 0 var(--s2)} a{color:var(--navy);text-underline-offset:3px}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--s3)}
+.wrap.text{max-width:var(--maxw-text)}
+:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+.sample-banner{background:var(--warn-bg);border-bottom:1px solid var(--warn-line);color:var(--warn-ink);
+  font-size:var(--fs-small);text-align:center;padding:var(--s1) var(--s2)}
+.slot{border:1px dashed var(--line-strong);background:var(--bg-soft);color:var(--muted);
+  display:flex;align-items:center;justify-content:center;text-align:center;font-size:var(--fs-small);border-radius:var(--radius)}
+.tbd{background:var(--warn-bg);color:var(--warn-ink);padding:0 4px;border-radius:3px;font-size:.9em}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* sanctuscorporation.com 404 — 글자 워드마크만 씁니다(이미지 상대 경로가 깨지지 않게) */
+:root{--on-navy:#D5DCE6; --on-navy-muted:#AEB9C8; --on-navy-strong:#FFFFFF; --line-on-navy:#3A5276}
+body{min-height:100vh;display:flex;flex-direction:column}
+.site-head{background:var(--navy-deep);border-bottom:1px solid var(--line-on-navy)}
+.site-head .wrap{padding-top:var(--s2);padding-bottom:var(--s2)}
+.wordmark{display:inline-flex;align-items:center;min-height:44px;color:var(--on-navy-strong);text-decoration:none;font-weight:800;letter-spacing:-0.01em}
+.wordmark span{color:var(--on-navy-muted);font-weight:600;margin-left:var(--s1);font-size:var(--fs-small)}
+.site-head :focus-visible{outline-color:var(--on-navy-strong)}
+main{flex:1;padding:var(--s6) 0}
+main p{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 var(--s3);background:var(--navy-deep);color:var(--on-navy-strong);
+  text-decoration:none;font-weight:700;border-radius:var(--radius);border:1px solid var(--navy-deep);transition:background var(--dur) var(--ease)}
+.btn:hover{background:var(--navy)}
+.en{margin-top:var(--s5);padding-top:var(--s4);border-top:1px solid var(--line)}
+.en h2{font-size:var(--fs-3)}
+.site-foot{background:var(--navy-deep);color:var(--on-navy-muted);padding:var(--s3) 0;font-size:var(--fs-small)}
+@media (max-width:560px){
+  main{padding:var(--s5) 0}
+  .wrap{padding:0 var(--s2)}
+  .btn{width:100%}
+}
+</style>
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <a class="wordmark" href="/">상투스코퍼레이션 주식회사<span lang="en">Sanctus Corporation Inc.</span></a>
+  </div>
+</header>
+<main>
+  <div class="wrap text">
+    <h1>요청하신 페이지를 찾을 수 없습니다</h1>
+    <p>주소가 바뀌었거나 없는 페이지입니다. 첫 화면에서 다시 찾아 주십시오.</p>
+    <a class="btn" href="/">첫 화면으로 가기</a>
+    <div class="en" lang="en">
+      <h2>The page you requested could not be found</h2>
+      <p>The address may have changed, or the page does not exist. Please start again from the home page.</p>
+      <a href="/">Go to the home page</a>
+    </div>
+  </div>
+</main>
+<footer class="site-foot">
+  <div class="wrap">© 2026 Sanctus Corporation Inc. · chanwoo@sanctuscorp.com</div>
+</footer>
+</body>
+</html>

@@ -71,7 +71,11 @@
   var NODES = ["KCP", "KPN", "KIS", "KOVAN", "NICE", "웰컴", "KSNET"];
   var W = 0, H = 0, R = 0, cx = 0, cy = 0, K = 1.62, mobile = false, pts = [], inner = [], dust = [], pulses = [], flash = [];
   var px = 0, py = 0, tx = 0, ty = 0, running = true, last = 0, nextPulse = 900;
-  var MONO = '11px ui-monospace,"SF Mono","Cascadia Mono",Consolas,"Roboto Mono",Menlo,monospace';
+  /* 캔버스에 data-cy(세로 자리)·data-scale(크기)·data-tone="amber"(한 가지 색)·data-font 를 주면 따른다 */
+  var DS = cv.dataset || {}, CY = parseFloat(DS.cy) || 0.5, SC = parseFloat(DS.scale) || 1, AMB = DS.tone === "amber";
+  var MONO = DS.font || '11px ui-monospace,"SF Mono","Cascadia Mono",Consolas,"Roboto Mono",Menlo,monospace';
+  var C_RING = AMB ? "224,170,96" : "190,205,235", C_COOL = AMB ? "206,146,70" : "150,176,226", C_WARM = AMB ? "255,214,150" : "236,222,196",
+      C_DUST = AMB ? "214,160,90" : "170,190,230", C_TXT = AMB ? "255,220,165" : "232,236,244";
 
   function size() {
     var r = cv.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
@@ -80,9 +84,9 @@
     mobile = W < 980;
     var vh = Math.min(H, window.innerHeight);
     K = mobile ? 1.5 : 1.62;
-    R = mobile ? Math.min(W * 0.235, vh * 0.15, 170) : Math.min(vh * 0.235, W * 0.135, 240);
+    R = (mobile ? Math.min(W * 0.235, vh * 0.15, 170) : Math.min(vh * 0.235, W * 0.135, 240)) * SC;
     cx = mobile ? W * 0.5 : W - Math.max(72, Math.min(W * 0.05, (W - 1240) / 2 + 72)) - K * R - 24;
-    cy = mobile ? vh * 0.28 : vh * 0.5;
+    cy = mobile ? vh * 0.28 : vh * CY;
     var n = mobile ? 950 : 2100; pts = []; inner = [];
     for (var m = 0; m < (mobile ? 150 : 280); m++) {
       var y2 = 1 - 2 * (m + 0.5) / (mobile ? 150 : 280), r2 = Math.sqrt(1 - y2 * y2), a2 = m * 2.399963229728653;
@@ -112,7 +116,7 @@
       var a = i / 140 * 6.2832 + spin, v = rot([Math.cos(a) * k, 0, Math.sin(a) * k], 0, tilt), q = proj(v);
       if ((v[2] >= 0) === front) { if (on) ctx.lineTo(q[0], q[1]); else { ctx.moveTo(q[0], q[1]); on = true; } } else on = false;
     }
-    ctx.strokeStyle = "rgba(190,205,235," + (front ? alpha : alpha * 0.45) + ")"; ctx.lineWidth = 1; ctx.stroke();
+    ctx.strokeStyle = "rgba(" + C_RING + "," + (front ? alpha : alpha * 0.45) + ")"; ctx.lineWidth = 1; ctx.stroke();
   }
   function drawNodes(t, front) {
     ctx.font = MONO; ctx.textBaseline = "middle";
@@ -130,7 +134,7 @@
       ctx.strokeStyle = "rgba(255,201,122," + (0.55 * dep + f * 0.45) + ")"; ctx.strokeRect(-z, -z, z * 2, z * 2);
       if (f > 0.02) { ctx.fillStyle = "rgba(255,201,122," + f + ")"; ctx.fillRect(-1.6, -1.6, 3.2, 3.2); }
       ctx.restore();
-      ctx.fillStyle = "rgba(232,236,244," + (0.74 * dep + f * 0.26) + ")";
+      ctx.fillStyle = "rgba(" + C_TXT + "," + (0.74 * dep + f * 0.26) + ")";
       if (mobile) { ctx.textAlign = "center"; ctx.fillText(NODES[i], q[0], q[1] + 15); }
       else if (q[0] >= cx) { ctx.textAlign = "left"; ctx.fillText(NODES[i], q[0] + 13, q[1]); }
       else { ctx.textAlign = "left"; ctx.fillText(NODES[i], q[0] + 9, q[1] - 14); }
@@ -142,12 +146,12 @@
     var t = now; px += (tx - px) * 0.04; py += (ty - py) * 0.04;
     ctx.clearRect(0, 0, W, H);
     var gl = ctx.createRadialGradient(cx, cy, 0, cx, cy, R * 2.5);
-    gl.addColorStop(0, "rgba(224,169,99,.2)"); gl.addColorStop(0.22, "rgba(224,169,99,.09)"); gl.addColorStop(0.5, "rgba(90,120,190,.07)"); gl.addColorStop(1, "rgba(0,0,0,0)");
+    gl.addColorStop(0, "rgba(224,169,99,.2)"); gl.addColorStop(0.22, "rgba(224,169,99,.09)"); gl.addColorStop(0.5, AMB ? "rgba(190,120,40,.06)" : "rgba(90,120,190,.07)"); gl.addColorStop(1, "rgba(0,0,0,0)");
     ctx.fillStyle = gl; ctx.fillRect(0, 0, W, H);
     for (var k = 0; k < dust.length; k++) {
       var d = dust[k]; d[0] += Math.cos(d[3]) * 0.012 * dt; d[1] += Math.sin(d[3]) * 0.008 * dt - 0.004 * dt;
       if (d[0] < 0) d[0] += W; if (d[0] > W) d[0] -= W; if (d[1] < 0) d[1] += H; if (d[1] > H) d[1] -= H;
-      ctx.fillStyle = "rgba(170,190,230," + (0.1 + 0.12 * Math.sin(t * 0.0006 + d[3] * 9)) + ")"; ctx.fillRect(d[0], d[1], d[2], d[2]);
+      ctx.fillStyle = "rgba(" + C_DUST + "," + (0.1 + 0.12 * Math.sin(t * 0.0006 + d[3] * 9)) + ")"; ctx.fillRect(d[0], d[1], d[2], d[2]);
     }
     var ay = t * 0.00013 + px * 0.5, ax = 0.3 + py * 0.22;
     ring(t, 1.28, 1.1, t * 0.00021, 0.16, false); ring(t, K, 0.42 + py * 0.12, 0, 0.15, false);
@@ -165,8 +169,8 @@
       var band = Math.exp(-(p[1] - scan) * (p[1] - scan) * 70), tw = 0.75 + 0.25 * Math.sin(t * 0.002 + p[3] * 40);
       var al = (0.14 + 0.74 * depth * depth) * tw + band * 0.75, sz = (0.7 + depth * 1.0) * q[2] + band * 0.9;
       if (band > 0.25) ctx.fillStyle = "rgba(255,206,132," + Math.min(1, al) + ")";
-      else if (depth > 0.55) ctx.fillStyle = "rgba(236,222,196," + al + ")";
-      else ctx.fillStyle = "rgba(150,176,226," + al + ")";
+      else if (depth > 0.55) ctx.fillStyle = "rgba(" + C_WARM + "," + al + ")";
+      else ctx.fillStyle = "rgba(" + C_COOL + "," + al + ")";
       ctx.fillRect(q[0] - sz / 2, q[1] - sz / 2, sz, sz);
     }
     ring(t, 1.28, 1.1, t * 0.00021, 0.16, true); ring(t, K, 0.42 + py * 0.12, 0, 0.15, true);
@@ -187,7 +191,7 @@
     for (var n = 0; n < flash.length; n++) flash[n] *= Math.pow(0.9975, dt);
     drawNodes(t, true);
     /* 구체를 감싸는 눈금 */
-    ctx.strokeStyle = "rgba(232,236,244,.22)"; ctx.lineWidth = 1;
+    ctx.strokeStyle = "rgba(" + C_TXT + ",.22)"; ctx.lineWidth = 1;
     var b = R * (mobile ? 1.36 : 1.42), c0 = 11;
     [[-1, -1], [1, -1], [1, 1], [-1, 1]].forEach(function (s) {
       var x = cx + s[0] * b, y = cy + s[1] * b * 0.9; ctx.beginPath(); ctx.moveTo(x - s[0] * c0, y); ctx.lineTo(x, y); ctx.lineTo(x, y - s[1] * c0); ctx.stroke();

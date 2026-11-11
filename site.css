@@ -140,7 +140,22 @@ h2{font-weight:300;font-size:clamp(1.7rem,3.5vw,3rem);line-height:1.25;letter-sp
 .cell.etc strong{font-size:1.12rem;letter-spacing:0;color:var(--soft)}
 @keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
 
-/* 03 접수 */
+/* 03 사례 */
+.case{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:34px 72px;align-items:center;padding:clamp(30px,4vw,54px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.case-n{display:flex;align-items:flex-end;gap:clamp(16px,3vw,44px)}
+.case-n>div{display:flex;flex-direction:column;gap:14px}
+.case-n b{font-weight:300;font-size:clamp(3.6rem,9.6vw,8.4rem);line-height:.86;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.case-n b i{display:inline-block;font-style:normal;font-size:.42em;letter-spacing:0;margin-left:.06em}
+.case-n .was b{color:var(--mute);text-decoration:line-through;text-decoration-thickness:1px;text-decoration-color:rgba(232,236,244,.4)}
+.case-n .now b{color:var(--amber);text-shadow:0 0 44px rgba(224,169,99,.35)}
+.case-n .now .mono{color:var(--amber)}
+.case-n .arw{font-family:var(--mono);font-size:clamp(1.3rem,2.6vw,2.2rem);color:var(--amber);padding-bottom:.5em}
+.case-t h3{font-weight:400;font-size:clamp(1.22rem,2vw,1.6rem);letter-spacing:-.02em;line-height:1.4;margin:0 0 12px}
+.case-t p{margin:0;color:var(--soft)}
+.case-t .calc{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:16px}
+.case-t .calc .tag{display:block;margin-bottom:8px;color:var(--amber);font-size:13px;font-weight:600;letter-spacing:.02em}
+
+/* 04 접수 */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative;margin-bottom:46px}
 .steps::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:var(--line-2)}
 .steps::after{content:"";position:absolute;top:4px;left:0;width:90px;height:3px;background:linear-gradient(90deg,transparent,var(--amber-hi));filter:blur(.4px);animation:run 5.5s linear infinite}
@@ -157,7 +172,7 @@ h2{font-weight:300;font-size:clamp(1.7rem,3.5vw,3rem);line-height:1.25;letter-sp
 .talk li::before{content:"0" counter(t);font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--mute);padding-top:4px}
 .talk li b{color:var(--ink);font-weight:600;margin-right:10px}
 
-/* 04 English */
+/* 05 English */
 .en{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 64px}
 .en p{margin:0 0 16px;color:var(--soft)}
 .en ul{margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
@@ -165,7 +180,7 @@ h2{font-weight:300;font-size:clamp(1.7rem,3.5vw,3rem);line-height:1.25;letter-sp
 .en a{color:var(--amber);text-decoration:none;border-bottom:1px solid rgba(224,169,99,.4)}
 .en a:hover{color:var(--amber-hi);border-color:var(--amber-hi)}
 
-/* 05 문의 */
+/* 06 문의 */
 .contact{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px 72px;align-items:end}
 .contact h2{margin-bottom:22px}
 .who-card{position:relative;margin:0;padding:8px clamp(18px,2.4vw,30px);border:1px solid var(--line);background:linear-gradient(180deg,#0b101b,#070a12)}
@@ -222,7 +237,7 @@ html:not(.js) .bars::before,html:not(.js) .bars::after{display:none}
   .steps::after{display:none}
   .step{padding:0 0 0 34px}
   .step::before{top:6px}
-  .talk,.en,.contact{grid-template-columns:1fr}
+  .talk,.en,.contact,.case{grid-template-columns:1fr}
   .who-card div{grid-template-columns:70px 1fr}
   .hero{align-items:flex-end}
   .hero-txt{max-width:640px}

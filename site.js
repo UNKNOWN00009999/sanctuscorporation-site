@@ -64,6 +64,55 @@
     }, { passive: true });
   }
 
+  /* 수수료 계산 예시 — 실제 사례의 수수료율(2.8% → 0.8%)을 고른 월 결제액에 그대로 곱한다. 단위는 만 원 */
+  var calc = document.getElementById("calc");
+  if (calc) {
+    var won = function (n) { return String(n).replace(/\B(?=(\d{3})+$)/g, ",") + "만 원"; };
+    var cb = [].slice.call(calc.querySelectorAll("button[data-v]"));
+    var cWas = document.getElementById("c-was"), cNow = document.getElementById("c-now"), cYear = document.getElementById("c-year");
+    var pick = function (v) {
+      cb.forEach(function (b) { b.setAttribute("aria-pressed", String(+b.getAttribute("data-v") === v)); });
+      cWas.textContent = "월 " + won(v * 28 / 1000);
+      cNow.textContent = "월 " + won(v * 8 / 1000);
+      cYear.textContent = won(v * 20 / 1000 * 12);
+    };
+    cb.forEach(function (b) { b.addEventListener("click", function () { pick(+b.getAttribute("data-v")); }); });
+  }
+
+  /* 성장 가치 구역의 점묘 바탕 — 8×8 순서 디더로 호박색 점을 찍는다 (한 번 그리고 크기가 바뀔 때만 다시) */
+  var dz = document.getElementById("dither");
+  if (dz && dz.getContext) {
+    var BAYER = [0, 32, 8, 40, 2, 34, 10, 42, 48, 16, 56, 24, 50, 18, 58, 26, 12, 44, 4, 36, 14, 46, 6, 38, 60, 28, 52, 20, 62, 30, 54, 22,
+      3, 35, 11, 43, 1, 33, 9, 41, 51, 19, 59, 27, 49, 17, 57, 25, 15, 47, 7, 39, 13, 45, 5, 37, 63, 31, 55, 23, 61, 29, 53, 21];
+    var dW = 0, dH = 0;
+    var blob = function (x, y, bx, by, r) { var dx = x - bx, dy = y - by, q = (dx * dx + dy * dy) / (r * r); return q >= 1 ? 0 : (1 - q) * (1 - q); };
+    var ramp = function (v, a, b) { var t = Math.max(0, Math.min(1, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+    var drawDither = function () {
+      var r = dz.getBoundingClientRect(), cell = r.width < 760 ? 3 : 4, w = Math.ceil(r.width / cell), h = Math.ceil(r.height / cell);
+      if (!w || !h || (w === dW && h === dH)) return;
+      dW = w; dH = h; dz.width = w; dz.height = h;
+      /* 글이 있는 위·아래는 비우고, 창이 놓인 가운데와 오른쪽 위에만 점을 찍는다 */
+      var wn = dz.parentNode.querySelector(".wins"), top0 = r.height * 0.3, bot0 = r.height * 0.75, wide = r.width >= 980;
+      if (wn) { var wr = wn.getBoundingClientRect(); top0 = wr.top - r.top; bot0 = wr.bottom - r.top; }
+      var g = dz.getContext("2d"), im = g.createImageData(w, h), d = im.data, asp = w / h;
+      for (var y = 0; y < h; y++) {
+        var py = y * cell, v = y / h, zin = ramp(py, top0 - 46, top0 + 60), zout = 1 - 0.96 * ramp(py, bot0 + 6, bot0 + 110);
+        for (var x = 0; x < w; x++) {
+          var u = x / w * asp, side = wide ? 0.8 * ramp(x / w, 0.6, 0.86) : 0;
+          var f = 0.26 + 0.5 * blob(u, v, 0.86 * asp, 0.42, 0.5) + 0.42 * blob(u, v, 0.1 * asp, 0.62, 0.42) + 0.3 * blob(u, v, 0.48 * asp, 0.9, 0.5);
+          if (Math.min(0.9, f) * Math.max(zin, side) * zout * 64 > BAYER[(y & 7) * 8 + (x & 7)] + 0.5) {
+            var o = (y * w + x) * 4; d[o] = 224; d[o + 1] = 169; d[o + 2] = 99; d[o + 3] = 150;
+          }
+        }
+      }
+      g.putImageData(im, 0, 0);
+    };
+    drawDither();
+    window.addEventListener("load", drawDither);
+    if ("ResizeObserver" in window) new ResizeObserver(drawDither).observe(dz);
+    else window.addEventListener("resize", drawDither);
+  }
+
   /* 첫 화면의 점 구체 — 접수 한 건이 여러 결제사로 이어지는 모습을 그린 장식 */
   var cv = document.getElementById("core");
   if (!cv || !cv.getContext) return;
